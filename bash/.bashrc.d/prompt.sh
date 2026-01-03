@@ -11,7 +11,7 @@ HOST=''
 if [ -f /.dockerenv ]; then
 	HOST="docker"
 else
-	HOST="\h"
+	HOST=$HOSTNAME
 fi
 
 GREEN='\[\033[01;32m\]'
