@@ -1,7 +1,7 @@
-# Development Environment 
+# Development Environment Files 
 
-A customized, fast, and relatively minimal development setup built on [Neovim](https://neovim.io/).
-In the process of reducing the number of plugins needed to complete tasks without limiting features, and includes dot files for other dependencies.
+Includes dot files used for my customized, fast, and relatively minimal development setup built on [Neovim](https://neovim.io/).
+In the process of reducing the number of plugins needed to complete tasks without limiting features, and includes dot files for other dependencies within Neovim.
 
 # Reasoning
 
@@ -26,5 +26,7 @@ By building and using this environment for more than a year now, I've gained and
 * Version Control: Git integration directly inside Neovim with Lazygit for easy remote syncing (problably get rid of later since i use git in another tmux pane most times)
 
 # Example of Environment
+
+Disclaimer: Your neovim most likely won't look like this due to the desktop terminal emulater being used. The default terminal in fedora with a gruvbox theme being used will look close but mine is customized. In the process of somehow including this within the Dev-Container project...don't know if that's possible or not.
 
 ![example picture](nvim/Neovim_example.png)
