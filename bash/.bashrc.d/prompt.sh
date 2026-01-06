@@ -14,9 +14,14 @@ else
 	HOST=$HOSTNAME
 fi
 
-GREEN='\[\033[01;32m\]'
-BLUE='\[\033[01;34m\]'
-ORANGE='\[\033[0;33m\]'
-RESET='\[\033[00m\]'
+# Gruvbox Colors
+GRUVBOX_BG='\[\033[48;5;235m\]'
+GRUVBOX_FG='\[\033[38;5;223m\]'
+GRUVBOX_ORANGE='\[\033[38;5;208m\]'
+GRUVBOX_BLUE='\[\033[38;5;109m\]'
+GRUVBOX_GREEN='\[\033[38;5;142m\]'
+GRUVBOX_YELLOW='\[\033[38;5;214m\]'
+GRUVBOX_RED='\[\033[38;5;167m\]'
+GRUVBOX_RESET='\[\033[0m\]'
 
-PS1="${debian_chroot:+($debian_chroot)}${GREEN}\u@\$HOST${RESET}:${BLUE}\w${ORANGE} \$(parse_git_branch)${RESET}\$ "
+PS1="${GRUVBOX_GREEN}\$HOST${GRUVBOX_GREEN}@${GRUVBOX_GREEN}\u${GRUVBOX_RESET} ${GRUVBOX_BLUE}\w${GRUVBOX_YELLOW}\$(parse_git_branch)${GRUVBOX_RESET} $ "
