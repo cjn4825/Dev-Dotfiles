@@ -13,10 +13,13 @@ One summer, I bought an older laptop with the goal of installing some Linux dist
 This includes the bulk and focus of this project, which is all the config files needed for Neovim to work like how I want it to...again, it's a work in progress, so there WILL be errors that pop up now and again, but will be fixed soon.
 
 ## bash
-This includes cosmetic changes I've made to the command prompt line, which includes colors that match the theme, username, and hostname on the system, and a status that shows what git branch you're in
+This includes cosmetic changes I've made to the command prompt line, which includes colors that match the theme, username, and hostname on the system, and a status that shows what git branch you're in.
 
 ## tmux
-This includes config files needed for tmux, the multiplexer I use, so that I can have multiple terminals and windows open, and contains the logic of how it interacts with Neovim for seamless switching
+This includes config files needed for tmux, the multiplexer I use, so that I can have multiple terminals and windows open, and contains the logic of how it interacts with Neovim for seamless switching.
+
+## fonts/firacode
+This includes the firacode font. The font allows for the use of devicons which make the whole look of neovim much better.
 
 # Skills Gained
 
@@ -24,7 +27,7 @@ By building and using this environment for more than a year now, I've gained and
 
 * Linux Proficiency: daily terminal workflow, Package management, file permissions, system navigation, symbolic links, file systems, user permissions, and management
 * Shell Proficiency: Bash usage, shell scripting, tmux multiplexer
-* Programming aid: Language Server Protocols with languages such as C++, Python, Java, Bash, and Lua 
+* Programming aid: Language Server Protocols with languages such as Python, Bash, and Lua 
 * Configuration Management: environment variables, modular Lua configuration, plugin management with Packer, and maintaining dotfiles to my liking
 * Version Control: Git integration directly inside Neovim with Lazygit for easy remote syncing (probably get rid of later since I use git in another tmux pane most times)
 
