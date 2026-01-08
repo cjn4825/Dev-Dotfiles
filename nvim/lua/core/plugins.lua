@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
     use 'famiu/bufdelete.nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.x',
+        'nvim-telescope/telescope.nvim', branch = 'master',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use "nvim-telescope/telescope-fzy-native.nvim"
