@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'jiangmiao/auto-pairs'
     use 'famiu/bufdelete.nvim'
-    use 'nvim-treesitter/nvim-treesitter'
+    use {'nvim-treesitter/nvim-treesitter', run = "npm install -g tree-sitter-cli"}
     use {
         'nvim-telescope/telescope.nvim', branch = 'master',
         requires = { {'nvim-lua/plenary.nvim'} }
