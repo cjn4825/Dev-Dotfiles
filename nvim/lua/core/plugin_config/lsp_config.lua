@@ -29,11 +29,6 @@ require("mason-lspconfig").setup({
     automatic_enable = true,
 })
 
--- The Bridge: Apply completion capabilities to all servers globally
-vim.lsp.config("*", {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-})
-
 -- keymaps
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -57,41 +52,6 @@ vim.diagnostic.config({
     },
 })
 
--- cmp setup
-local cmp = require("cmp")
-cmp.setup({
-    window = {
-        completion = cmp.config.window.bordered({
-            border = "rounded",
-            winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
-        }),
-        documentation = cmp.config.window.bordered({
-            border = "rounded",
-            winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder",
-        }),
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    }),
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        {
-            name = 'buffer',
-            option = {
-                get_bufnrs = function() return vim.api.nvim_list_bufs() end
-            }
-        },
-    },
-})
-
--- Snippet Loader
-require("luasnip.loaders.from_vscode").lazy_load()
-
 -- fix undefined global vim issue
 vim.lsp.config("lua_ls", {
     settings = {
@@ -102,3 +62,18 @@ vim.lsp.config("lua_ls", {
         }
     }
 })
+
+-- attempt at getting yamlls autocomplete to work
+-- vim.lsp.config("yamlls", {
+--     settings = {
+--         yaml = {
+--             schemaStore = {
+--                 enable = true,
+--                 url = "https://www.schemastore.org/api/json/catalog.json"
+--             },
+--             validate = true,
+--             completion = true,
+--             hover = true
+--         }
+--     }
+-- })
