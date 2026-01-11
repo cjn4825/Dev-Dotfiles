@@ -1,37 +1,58 @@
-local builtin = require('telescope.builtin')
-local telescope = require('telescope')
-local devicons = require("nvim-web-devicons")
-
-devicons.setup()
-
--- function for find files that starts at user home directory
-local findFilesHome = function()
-  builtin.find_files({
-    cwd = vim.fn.expand('~')
-  })
-end
-
-local grepFilesHome = function()
-  builtin.live_grep({
-    cwd = vim.fn.expand('~')
-  })
-end
-
-vim.keymap.set('n', '<leader>f', findFilesHome, {silent=true})
-vim.keymap.set('n', '<leader>g', grepFilesHome, {silent=true})
-vim.keymap.set('n', '<leader>r', builtin.oldfiles, {silent=true})
-vim.keymap.set("n", "<leader>b", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", {silent=true})
-
-telescope.setup {
-    pickers = {
-        find_files = {
-            hidden = true,
-        },
-        live_grep = {
-            additional_args = {"--hidden"}
-        },
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "nvim-telescope/telescope-file-browser.nvim",
     },
-     extensions = {
+    keys = {
+      {
+        "<leader>f",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand("~"),
+          })
+        end,
+        desc = "Find files from home",
+      },
+      {
+        "<leader>g",
+        function()
+          require("telescope.builtin").live_grep({
+            cwd = vim.fn.expand("~"),
+          })
+        end,
+        desc = "Grep files from home",
+      },
+      {
+        "<leader>r",
+        function()
+          require("telescope.builtin").oldfiles()
+        end,
+        desc = "Recent files",
+      },
+      {
+        "<leader>b",
+        "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>",
+        desc = "File browser (cwd)",
+      },
+    },
+    config = function()
+      local telescope = require("telescope")
+
+      telescope.setup({
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+          live_grep = {
+            additional_args = { "--hidden" },
+          },
+        },
+        extensions = {
           file_browser = {
             auto_depth = true,
             display_stat = false,
@@ -40,7 +61,11 @@ telescope.setup {
             select_buffer = true,
             hidden = true,
           },
-    },
+        },
+      })
+
+      telescope.load_extension("fzf")
+      telescope.load_extension("file_browser")
+    end,
+  },
 }
-require("telescope").load_extension("file_browser")
-telescope.load_extension('fzy_native')

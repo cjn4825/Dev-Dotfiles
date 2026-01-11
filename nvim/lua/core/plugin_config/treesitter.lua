@@ -1,25 +1,15 @@
-require'nvim-treesitter'.setup {
-    ensure_installed = {
-        "vim",
-        "vimdoc",
-        "lua",
-        "python",
-        "json",
-        "yaml",
-        "dockerfile",
-        "bash",
-        "markdown",
-        "tmux",
-        "ini",
-        "terraform",
-        "gitignore",
-        "ssh_config"
-    },
-
-    sync_install = false,
-    auto_install = true,
-
-    highlight = {
-        enable = true,
-    },
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+    require'nvim-treesitter'.setup {
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+      }
+    end,
+  },
 }

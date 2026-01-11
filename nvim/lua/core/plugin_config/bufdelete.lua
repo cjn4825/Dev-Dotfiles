@@ -1,1 +1,12 @@
-vim.cmd [[nnoremap <leader>x <cmd>Bdelete<cr>]]
+return {
+  {
+    'famiu/bufdelete.nvim',
+    keys = {
+        {
+            "<leader>x",
+            "<cmd>Bdelete<cr>",
+            desc = "delete buffers while still keeping the background",
+        },
+    },
+   },
+}

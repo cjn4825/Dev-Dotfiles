@@ -1,4 +1,18 @@
-local treesj = require('treesj')
-treesj.setup()
-
-vim.keymap.set('n', '<leader>j', treesj.toggle, {silent = true})
+return {
+  {
+    "Wansmer/treesj",
+    keys = {
+      {
+        "<leader>j",
+        function()
+          require("treesj").toggle()
+        end,
+        desc = "toggle formating for delimeters",
+        silent = true,
+      },
+    },
+    config = function()
+      require("treesj").setup()
+    end,
+  },
+}
